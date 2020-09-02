@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="ImproveAgreementTesting"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/Users/lei/CLionProjects/ImproveAgreementTesting/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/Users/lei/CLionProjects/ImproveAgreementTesting/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/lei/CLionProjects/ImproveAgreementTesting/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/Users/lei/CLionProjects/ImproveAgreementTesting/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/lei/CLionProjects/ImproveAgreementTesting/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/Users/lei/CLionProjects/ImproveAgreementTesting/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/Users/lei/CLionProjects/ImproveAgreementTesting/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/lei/CLionProjects/ImproveAgreementTesting/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/Users/lei/CLionProjects/ImproveAgreementTesting/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/lei/CLionProjects/ImproveAgreementTesting/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/Users/lei/CLionProjects/ImproveAgreementTesting/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/Users/lei/CLionProjects/ImproveAgreementTesting/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/lei/CLionProjects/ImproveAgreementTesting/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/Users/lei/CLionProjects/ImproveAgreementTesting/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/lei/CLionProjects/ImproveAgreementTesting/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="ImproveAgreementTesting">
+				<Option output="/Users/lei/CLionProjects/ImproveAgreementTesting/cmake-build-debug/ImproveAgreementTesting" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/lei/CLionProjects/ImproveAgreementTesting/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/Users/lei/CLionProjects/ImproveAgreementTesting/cmake-build-debug/Makefile&quot;  VERBOSE=1 ImproveAgreementTesting"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/lei/CLionProjects/ImproveAgreementTesting/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/Users/lei/CLionProjects/ImproveAgreementTesting/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/lei/CLionProjects/ImproveAgreementTesting/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="ImproveAgreementTesting/fast">
+				<Option output="/Users/lei/CLionProjects/ImproveAgreementTesting/cmake-build-debug/ImproveAgreementTesting" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/lei/CLionProjects/ImproveAgreementTesting/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/Users/lei/CLionProjects/ImproveAgreementTesting/cmake-build-debug/Makefile&quot;  VERBOSE=1 ImproveAgreementTesting/fast"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/lei/CLionProjects/ImproveAgreementTesting/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/Users/lei/CLionProjects/ImproveAgreementTesting/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/lei/CLionProjects/ImproveAgreementTesting/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/Users/lei/CLionProjects/ImproveAgreementTesting/AgreementTesting.cpp">
+			<Option target="ImproveAgreementTesting"/>
+		</Unit>
+		<Unit filename="/Users/lei/CLionProjects/ImproveAgreementTesting/AgreementTesting.h">
+			<Option target="ImproveAgreementTesting"/>
+		</Unit>
+		<Unit filename="/Users/lei/CLionProjects/ImproveAgreementTesting/ConstructGraph.cpp">
+			<Option target="ImproveAgreementTesting"/>
+		</Unit>
+		<Unit filename="/Users/lei/CLionProjects/ImproveAgreementTesting/ConstructGraph.h">
+			<Option target="ImproveAgreementTesting"/>
+		</Unit>
+		<Unit filename="/Users/lei/CLionProjects/ImproveAgreementTesting/EulerTourTree.cpp">
+			<Option target="ImproveAgreementTesting"/>
+		</Unit>
+		<Unit filename="/Users/lei/CLionProjects/ImproveAgreementTesting/EulerTourTree.h">
+			<Option target="ImproveAgreementTesting"/>
+		</Unit>
+		<Unit filename="/Users/lei/CLionProjects/ImproveAgreementTesting/GetDecomposition.cpp">
+			<Option target="ImproveAgreementTesting"/>
+		</Unit>
+		<Unit filename="/Users/lei/CLionProjects/ImproveAgreementTesting/GetDecomposition.h">
+			<Option target="ImproveAgreementTesting"/>
+		</Unit>
+		<Unit filename="/Users/lei/CLionProjects/ImproveAgreementTesting/HDT.cpp">
+			<Option target="ImproveAgreementTesting"/>
+		</Unit>
+		<Unit filename="/Users/lei/CLionProjects/ImproveAgreementTesting/HDT.h">
+			<Option target="ImproveAgreementTesting"/>
+		</Unit>
+		<Unit filename="/Users/lei/CLionProjects/ImproveAgreementTesting/HelperDataStructure.h">
+			<Option target="ImproveAgreementTesting"/>
+		</Unit>
+		<Unit filename="/Users/lei/CLionProjects/ImproveAgreementTesting/InputGenerator.cpp">
+			<Option target="ImproveAgreementTesting"/>
+		</Unit>
+		<Unit filename="/Users/lei/CLionProjects/ImproveAgreementTesting/InputGenerator.h">
+			<Option target="ImproveAgreementTesting"/>
+		</Unit>
+		<Unit filename="/Users/lei/CLionProjects/ImproveAgreementTesting/InputTreeNode.cpp">
+			<Option target="ImproveAgreementTesting"/>
+		</Unit>
+		<Unit filename="/Users/lei/CLionProjects/ImproveAgreementTesting/InputTreeNode.h">
+			<Option target="ImproveAgreementTesting"/>
+		</Unit>
+		<Unit filename="/Users/lei/CLionProjects/ImproveAgreementTesting/OutputChecker.cpp">
+			<Option target="ImproveAgreementTesting"/>
+		</Unit>
+		<Unit filename="/Users/lei/CLionProjects/ImproveAgreementTesting/OutputChecker.h">
+			<Option target="ImproveAgreementTesting"/>
+		</Unit>
+		<Unit filename="/Users/lei/CLionProjects/ImproveAgreementTesting/Treap.cpp">
+			<Option target="ImproveAgreementTesting"/>
+		</Unit>
+		<Unit filename="/Users/lei/CLionProjects/ImproveAgreementTesting/Treap.h">
+			<Option target="ImproveAgreementTesting"/>
+		</Unit>
+		<Unit filename="/Users/lei/CLionProjects/ImproveAgreementTesting/TreapNode.h">
+			<Option target="ImproveAgreementTesting"/>
+		</Unit>
+		<Unit filename="/Users/lei/CLionProjects/ImproveAgreementTesting/main.cpp">
+			<Option target="ImproveAgreementTesting"/>
+		</Unit>
+		<Unit filename="/Users/lei/CLionProjects/ImproveAgreementTesting/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

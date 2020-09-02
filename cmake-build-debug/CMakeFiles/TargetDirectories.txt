@@ -1,0 +1,3 @@
+/Users/lei/CLionProjects/ImproveAgreementTesting/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/lei/CLionProjects/ImproveAgreementTesting/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/lei/CLionProjects/ImproveAgreementTesting/cmake-build-debug/CMakeFiles/ImproveAgreementTesting.dir
