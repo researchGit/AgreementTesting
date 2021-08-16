@@ -15,7 +15,7 @@
   -p flag is used for turning on/off multi-level HDT. Value of false is recommended for efficiency.  
 
   if you are interested in using built-in agreement profile generator, you may use:  
-  ./ImprovedAgreementTesting -s [number of labels] [number of input trees] [maximum degree of a node]. 
+  ./ImprovedAgreementTesting -s [number of labels] [number of input trees] [maximum degree of a node].  
   example: ./ImprovedAgreementTesting -s 127 7 3  
 
 # Contact
