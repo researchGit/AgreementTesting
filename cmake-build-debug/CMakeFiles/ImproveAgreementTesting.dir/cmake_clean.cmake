@@ -6,6 +6,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/ImproveAgreementTesting.dir/HDT.cpp.o"
   "CMakeFiles/ImproveAgreementTesting.dir/InputGenerator.cpp.o"
   "CMakeFiles/ImproveAgreementTesting.dir/InputTreeNode.cpp.o"
+  "CMakeFiles/ImproveAgreementTesting.dir/NewickReader.cpp.o"
   "CMakeFiles/ImproveAgreementTesting.dir/OutputChecker.cpp.o"
   "CMakeFiles/ImproveAgreementTesting.dir/Treap.cpp.o"
   "CMakeFiles/ImproveAgreementTesting.dir/main.cpp.o"

@@ -44,6 +44,7 @@
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add directory="/Users/lei/Boost/boost_1_73_0"/>
 					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/include"/>
@@ -65,6 +66,7 @@
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add directory="/Users/lei/Boost/boost_1_73_0"/>
 					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/include"/>
@@ -123,6 +125,12 @@
 			<Option target="ImproveAgreementTesting"/>
 		</Unit>
 		<Unit filename="/Users/lei/CLionProjects/ImproveAgreementTesting/InputTreeNode.h">
+			<Option target="ImproveAgreementTesting"/>
+		</Unit>
+		<Unit filename="/Users/lei/CLionProjects/ImproveAgreementTesting/NewickReader.cpp">
+			<Option target="ImproveAgreementTesting"/>
+		</Unit>
+		<Unit filename="/Users/lei/CLionProjects/ImproveAgreementTesting/NewickReader.h">
 			<Option target="ImproveAgreementTesting"/>
 		</Unit>
 		<Unit filename="/Users/lei/CLionProjects/ImproveAgreementTesting/OutputChecker.cpp">

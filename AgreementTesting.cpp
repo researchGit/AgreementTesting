@@ -38,16 +38,11 @@ string AgreementTesting::BuildAST(vector<string> &initialPosition) {
 
     while (!Q.empty()) {
         int size = Q.size();
-//        cout << "Q's size is : " << size << endl;
         for (int i = 0; i < size; ++i) {
             auto currentPositions = Q.front();
             vector<string> currentPoi = currentPositions->currentPosition_;
             vector<string> parentPoi = currentPositions->parentPosition_;
             Q.pop();
-
-//            cout << "current processing position : ";
-//            for(auto &l : currentPoi) cout << l << " ";
-//            cout << endl;
 
             // <S, PI> = GetDecomposition(pi)
             auto SnPi = getDecomposition_->computeDecomposition(currentPoi, parentPoi, currentPositions->GAMMA, currentPositions->COMPONENT, first);
@@ -62,14 +57,11 @@ string AgreementTesting::BuildAST(vector<string> &initialPosition) {
             currentPositions->parent_->children.emplace_back(currentNode);
             // add each label from S to the node's label field
             for(auto &l : SnPi->S){
+                if(l.substr(0,2) == "f_") continue;
                 currentNode->label += (l + "-");
             }
             // add child positions to the queue for further processing
             for(int j = 0; j < SnPi->childPositions->size(); ++j){
-//                cout << "appending child position : ";
-//                for(auto &l : childPosition) cout << l << " ";
-//                cout << endl;
-
                 shared_ptr<Positions> childPositions = make_shared<Positions>((*SnPi->childPositions)[j], currentPoi, currentNode, (*SnPi->GAMMA)[j], (*SnPi->COMPONENT)[j]);
                 Q.emplace(childPositions);
             }
