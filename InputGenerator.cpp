@@ -35,9 +35,6 @@ void InputGenerator::generateBinaryInputTrees(int numberOfTaxa, int numberOfTree
     }
     inputTrees.emplace_back(seedRoot);
 
-//    cout << "---- inspect seed tree ----" << endl;
-//    printTree(seedRoot);
-
     while (++treeCount < numberOfTrees) {
         inputTrees.emplace_back(constructSubTree(nodes, seedRoot, treeCount));
     }
@@ -72,9 +69,6 @@ void InputGenerator::generateGeneralInputTrees(int numberOfTaxa, int numberOfTre
     labelC = taxaCount;
     seedTrees.emplace_back(seedRoot);
 
-//    cout << "---- inspect seed tree ----" << endl;
-//    printTree(seedRoot);
-
     while (++treeCount < numberOfTrees) {
         if (treeCount + 1 == numberOfTrees)
             inputTrees.emplace_back(
@@ -91,9 +85,6 @@ shared_ptr<InputTreeNode> InputGenerator::constructGeneralSubTree(vector<shared_
                                                                   unordered_set<string> &availableLabels,
                                                                   unordered_set<string> &usedLabels,
                                                                   bool lastTree) {
-//    cout << "---- check sizes ----" << endl;
-//    cout << availableLabels.size() << endl;
-//    cout << usedLabels.size() << endl;
 
     unordered_set<string> subset;
     if (usedLabels.empty()) {
@@ -126,7 +117,6 @@ shared_ptr<InputTreeNode> InputGenerator::constructGeneralSubTree(vector<shared_
             for (int i = 0; i < usedRand; ++i) subset.emplace(used[i]);
             for (auto &l : availableLabels) subset.emplace(l);
         } else {
-//            cout << " i am here" << endl;
             int availableLen = (int) availableLabels.size() - 2;
             int availableRand = availableLen <= 0 ? (int)availableLabels.size() : rand() % availableLen + 2;
             int usedLen = (int) usedLabels.size() - 2;
@@ -135,15 +125,6 @@ shared_ptr<InputTreeNode> InputGenerator::constructGeneralSubTree(vector<shared_
             for (auto &l : availableLabels) available.emplace_back(l);
             vector<string> used;
             for (auto &l : usedLabels) used.emplace_back(l);
-//            cout << "here?" << endl;
-
-//            cout << "check used" << endl;
-//            for (auto &l : used) cout << l << " ";
-//            cout << endl;
-//
-//            cout << "check available" << endl;
-//            for (auto &l : available) cout << l << " ";
-//            cout << endl;
 
             unsigned ranSeed = chrono::system_clock::now().time_since_epoch().count();
             shuffle(used.begin(), used.end(), default_random_engine(ranSeed));
@@ -160,14 +141,9 @@ shared_ptr<InputTreeNode> InputGenerator::constructGeneralSubTree(vector<shared_
         }
     }
 
-//    cout << "---- inspect subset ----" << endl;
-//    for (auto &ele : subset) cout << ele << " ";
-//    cout << endl;
 
     shared_ptr<InputTreeNode> subtreeRoot = extractGeneralSubTree(subset, seed, treeCount, degree);
 
-//    cout <<"---- inspect subtree ----" << endl;
-//    printSubtree(subtreeRoot);
 
     return subtreeRoot;
 }
@@ -201,14 +177,9 @@ InputGenerator::constructSubTree(vector<shared_ptr<InputTreeNode>> nodes, shared
     shuffle(nodes.begin(), nodes.end(), default_random_engine(ranSeed));
     for (int i = 0; i < randNum; ++i) subset.emplace(nodes[i]->getNodeLabel());
 
-//    cout << "---- inspect subset ----" << endl;
-//    for(auto &ele : subset) cout << ele << " ";
-//    cout << endl;
 
     shared_ptr<InputTreeNode> subtreeRoot = extractSubTree(subset, seed, treeCount);
 
-//    cout <<"---- inspect subtree ----" << endl;
-//    printSubtree(subtreeRoot);
 
     return subtreeRoot;
 }
@@ -243,7 +214,6 @@ shared_ptr<InputTreeNode> InputGenerator::extractGeneralSubTree(unordered_set<st
 
     if (numberOfNonNullptr >= 2) {
         if (treeNode == nullptr) {
-//            treeNode = make_shared<InputTreeNode>(node->getNodeLabel(), treeCount);
             treeNode = make_shared<InputTreeNode>("label_" + to_string(labelC++), treeCount);
         }
         for (auto &rNode : returnNodes) {

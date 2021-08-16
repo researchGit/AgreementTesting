@@ -35,7 +35,7 @@ public:
 
     unordered_map<string, unordered_map<int, unordered_set<string>>> getChildMap();
 
-    void printAssembleGraph();
+    void printAssembleGraph(shared_ptr<InputGraph> aGraph);
 
     void printInitialPosition();
 

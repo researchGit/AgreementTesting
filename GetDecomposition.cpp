@@ -32,10 +32,6 @@ GetDecomposition::computeDecomposition(vector<string> &position, vector<string> 
     unordered_set<int> K;
     unordered_map<string, unordered_set<int>> positionIdx;
 
-//    cout << "---- check position ------" << endl;
-//    for (auto &str: position) cout << str << " ";
-//    cout << endl;
-
     // takes O(k) time
     for (int i = 0; i < position.size(); ++i) {
         if (position[i].empty()) continue;
@@ -48,7 +44,6 @@ GetDecomposition::computeDecomposition(vector<string> &position, vector<string> 
             // when idx set is empty, then corresponding label is exposed
             if (occurIter->second.empty()) {
                 S.emplace(position[i]);
-//                K.emplace(i);
                 // if the label is "new"
                 if (position[i] != parentPosition[i]) {
                     // the label is not deleted from hdt
@@ -71,24 +66,6 @@ GetDecomposition::computeDecomposition(vector<string> &position, vector<string> 
             K.emplace(idx);
         }
     }
-
-//    cout << "---- check toDelete set ----" << endl;
-//    for (auto &str : toDelete) {
-//        cout << str << " ";
-//    }
-//    cout << endl;
-//
-//    cout << "---- check set S ----" << endl;
-//    for (auto &str : S) {
-//        cout << str << " ";
-//    }
-//    cout << endl;
-
-//    cout << "---- check set K ----" << endl;
-//    for (auto &idx : K) {
-//        cout << idx << " ";
-//    }
-//    cout << endl;
 
     // construct the initial state of the corresponding data structure
     unordered_map<shared_ptr<TreapNode>, unordered_map<int, unordered_set<string>>> gamma;
@@ -141,28 +118,6 @@ GetDecomposition::computeDecomposition(vector<string> &position, vector<string> 
     } else {
         gamma = move(gam);
         component = move(comp);
-
-        // check set gamma
-//        cout << "---- check set Gamma before removal and update ----" << endl;
-//        for (auto &entry : gamma) {
-//            cout << entry.first << endl;
-//            for (auto &ent : entry.second) {
-//                cout << "\t" << ent.first << " : ";
-//                for (auto &e : ent.second) {
-//                    cout << e << " ";
-//                }
-//                cout << endl;
-//            }
-//        }
-
-        // check set component
-//        cout << "---- check set Component before removal and update ----" << endl;
-//        for (auto &entry : component) {
-//            cout << entry.first << " ";
-//            for (auto &ent : entry.second) {
-//                cout << "\t" << ent.first << " <-> " << ent.second << endl;
-//            }
-//        }
 
         for(auto &labelToDelete : toDelete){
             shared_ptr<TreapNode> ptr;
@@ -224,29 +179,6 @@ GetDecomposition::computeDecomposition(vector<string> &position, vector<string> 
         }
     }
 
-
-    // check set gamma
-//    cout << "---- check set Gamma before removal ----" << endl;
-//    for (auto &entry : gamma) {
-//        cout << entry.first << endl;
-//        for (auto &ent : entry.second) {
-//            cout << "\t" << ent.first << " : ";
-//            for (auto &e : ent.second) {
-//                cout << e << " ";
-//            }
-//            cout << endl;
-//        }
-//    }
-
-    // check set component
-//    cout << "---- check set Component before removal ----" << endl;
-//    for (auto &entry : component) {
-//        cout << entry.first << " ";
-//        for (auto &ent : entry.second) {
-//            cout << "\t" << ent.first << " <-> " << ent.second << endl;
-//        }
-//    }
-
     // remove corresponding edges from the display graph
     for (auto &exposedLabel : S) {
         auto neighborIter = adjacentList_.find(exposedLabel);
@@ -295,6 +227,7 @@ GetDecomposition::computeDecomposition(vector<string> &position, vector<string> 
                         auto compIter = component.find(current->label_);
                         if(compIter != component.end()) {
                             for(auto &entry : compIter->second){
+//                                cout << current->label_ << "-->" << entry.second << " --> " << tempNode << endl;
                                 auto gammaIter = gamma.find(tempNode);
                                 if(gammaIter != gamma.end()){
                                     auto idx = gammaIter->second.find(entry.first);
@@ -331,94 +264,18 @@ GetDecomposition::computeDecomposition(vector<string> &position, vector<string> 
 
     unordered_map<shared_ptr<TreapNode>, unordered_map<int, unordered_set<string>>> gammaCopy = gamma;
     unordered_map<string, unordered_map<int, shared_ptr<TreapNode>>> componentCopy = component;
-//    printAdjacentList();
-
-    // construct set Gamma
-//    unordered_map<shared_ptr<TreapNode>, unordered_map<int, unordered_set<string>>> gamma;
-//    unordered_map<string, unordered_map<int, shared_ptr<TreapNode>>> component;
-//    for(int i = 0; i < position.size(); ++i){
-//        if(position[i].empty()) continue;
-//        auto childIter = childMap_.find(position[i]);
-//        if(childIter != childMap_.end()){
-//            auto idxIter = childIter->second.find(i);
-//            if(idxIter != childIter->second.end()){
-//                for(auto &child : idxIter->second){
-//                    auto activeOccurIter = hdt_->levelActiveOccurMap.find(0);
-//                    if (activeOccurIter != hdt_->levelActiveOccurMap.end()) {
-//                        auto occurIter = activeOccurIter->second.find(child);
-//                        if (occurIter != activeOccurIter->second.end()) {
-//                            shared_ptr<TreapNode> root = hdt_->hdtFindRoot(occurIter->second);
-//                            auto gammaIter = gamma.find(root);
-//                            if(gammaIter != gamma.end()){
-//                                auto idx = gammaIter->second.find(i);
-//                                if(idx != gammaIter->second.end()){
-//                                    idx->second.emplace(child);
-//                                }
-//                                else {
-//                                    unordered_set<string> tempSet{child};
-//                                    gammaIter->second.emplace(i, tempSet);
-//                                }
-//                            }
-//                            else {
-//                                unordered_set<string> tempSet{child};
-//                                unordered_map<int, unordered_set<string>> tempMap{{i, tempSet}};
-//                                gamma.emplace(root, tempMap);
-//                            }
-//
-//                            auto compIter = component.find(child);
-//                            if(compIter != component.end()){
-//                                compIter->second.emplace(i, root);
-//                            }
-//                            else {
-//                                unordered_map<int, shared_ptr<TreapNode>> tempMap{{i, root}};
-//                                component.emplace(child, tempMap);
-//                            }
-//                        }
-//                    }
-//                }
-//            }
-//        }
-//    }
-
-    // check set gamma
-//    cout << "---- check set Gamma ----" << endl;
-//    for (auto &entry : gamma) {
-//        cout << entry.first << endl;
-//        for (auto &ent : entry.second) {
-//            cout << "\t" << ent.first << " : ";
-//            for (auto &e : ent.second) {
-//                cout << e << " ";
-//            }
-//            cout << endl;
-//        }
-//    }
-//
-//    // check set component
-//    cout << "---- check set Component ----" << endl;
-//    for (auto &entry : component) {
-//        cout << entry.first << " ";
-//        for (auto &ent : entry.second) {
-//            cout << "\t" << ent.first << " <-> " << ent.second << endl;
-//        }
-//    }
 
     string badLabel;
     while (!(badLabel = computeBadLabel(S, component)).empty()) {
-        cout << "found bad labels" << endl;
         // check badLabel
-//        cout << "---- check bad label ----" << endl;
-//        cout << "current badLabel is : " << badLabel << endl;
+        cout << "---- check bad label ----" << endl;
+        cout << "current badLabel is : " << badLabel << endl;
 
         // badLabel stores the current bad label
         // compute set K'
         auto positionIdxIter = positionIdx.find(badLabel);
         if (positionIdxIter != positionIdx.end()) {
             auto &kPrime = positionIdxIter->second;
-
-            // check set K'
-//            cout << "---- check K' ----" << endl;
-//            for (auto &entry : kPrime) cout << entry << " ";
-//            cout << endl;
 
             // compute set Gamma'
             unordered_set<shared_ptr<TreapNode>> gammaPrime;
@@ -439,24 +296,6 @@ GetDecomposition::computeDecomposition(vector<string> &position, vector<string> 
                     }
                 }
             }
-
-            // check set Gamma'
-//            cout << "---- check Gamma' ----" << endl;
-//            for (auto &entry : gammaPrime) cout << entry << " ";
-//            cout << endl;
-//
-//            // check set gamma
-//            cout << "---- check set Gamma right before merging ----" << endl;
-//            for (auto &entry : gamma) {
-//                cout << entry.first << endl;
-//                for (auto &ent : entry.second) {
-//                    cout << "\t" << ent.first << " : ";
-//                    for (auto &e : ent.second) {
-//                        cout << e << " ";
-//                    }
-//                    cout << endl;
-//                }
-//            }
 
             // initialize set B
             unordered_map<int, unordered_set<string>> setB;
@@ -504,68 +343,10 @@ GetDecomposition::computeDecomposition(vector<string> &position, vector<string> 
                 auto kIter = K.find(i);
                 if (kIter != K.end()) K.erase(kIter);
             }
-
-            // check gamma after merging
-//            cout << "---- check set Gamma after merging ----" << endl;
-//            for (auto &entry : gamma) {
-//                cout << entry.first << endl;
-//                for (auto &ent : entry.second) {
-//                    cout << "\t" << ent.first << " : ";
-//                    for (auto &e : ent.second) {
-//                        cout << e << " ";
-//                    }
-//                    cout << endl;
-//                }
-//            }
-
-            // check set S after merging
-//            cout << "---- check set S after merging ----" << endl;
-//            for (auto &str : S) {
-//                cout << str << " ";
-//            }
-//            cout << endl;
-//
-//            // check set K after merging
-//            cout << "---- check set K after merging ----" << endl;
-//            for (auto &idx : K) {
-//                cout << idx << " ";
-//            }
-//            cout << endl;
-
-            // check set component
-//            cout << "---- check set Component after merging ----" << endl;
-//            for (auto &entry : component) {
-//                cout << entry.first << " ";
-//                for (auto &ent : entry.second) {
-//                    cout << "\t" << ent.first << " <-> " << ent.second << endl;
-//                }
-//            }
         }
 
         badLabel = "";
     }
-
-    // check set gamma
-//    cout << "---- check set Gamma right before computing child positions ----" << endl;
-//    for (auto &entry : gamma) {
-//        cout << entry.first << endl;
-//        for (auto &ent : entry.second) {
-//            cout << "\t" << ent.first << " : ";
-//            for (auto &e : ent.second) {
-//                cout << e << " ";
-//            }
-//            cout << endl;
-//        }
-//    }
-
-    // check set component
-//    cout << "---- check set Component right before computing child positions ----" << endl;
-//    for (auto &entry : component) {
-//        cout << entry.first << " ";
-//        for (auto &ent : entry.second) {
-//            cout << "\t" << ent.first << " <-> " << ent.second << endl;
-//        }
-//    }
 
     // initialize fancy PI
     shared_ptr<vector<vector<string>>> PI = make_shared<vector<vector<string>>>();
@@ -586,10 +367,6 @@ GetDecomposition::computeDecomposition(vector<string> &position, vector<string> 
                 else pi_A[i] = parentLabel;
             }
         }
-
-//        cout << "---- check child position before updating the tmpGamma and tmpComponent ----" << endl;
-//        for(auto &label : pi_A) cout << label << " " ;
-//        cout << endl;
 
         unordered_map<shared_ptr<TreapNode>, unordered_map<int, unordered_set<string>>> tmpGamma;
         unordered_map<string, unordered_map<int, shared_ptr<TreapNode>>> tmpComponent;
@@ -704,54 +481,16 @@ GetDecomposition::computeDecomposition(vector<string> &position, vector<string> 
             }
         }
 
-        // check set gamma
-//        cout << "---- check set Gamma right for a child position ----" << endl;
-//        for (auto &entry1 : tmpGamma) {
-//            cout << entry1.first << endl;
-//            for (auto &ent : entry1.second) {
-//                cout << "\t" << ent.first << " : ";
-//                for (auto &e : ent.second) {
-//                    cout << e << " ";
-//                }
-//                cout << endl;
-//            }
-//        }
-//
-//        // check set component
-//        cout << "---- check set Component right for a child position ----" << endl;
-//        for (auto &entry1 : tmpComponent) {
-//            cout << entry1.first << " ";
-//            for (auto &ent : entry1.second) {
-//                cout << "\t" << ent.first << " <-> " << ent.second << endl;
-//            }
-//        }
-
         PI->emplace_back(pi_A);
         GAMMA->emplace_back(tmpGamma);
         COMPONENT->emplace_back(tmpComponent);
     }
-
-    // check children positions
-//    cout << "---- check children positions after computations ----" << endl;
-//    for (auto &cp : *PI) {
-//        cout << "\t child position is: ";
-//        for (auto &ent : cp) cout << (ent.empty() ? "null" : ent) << " ";
-//        cout << endl;
-//    }
-//
-//    // check set S
-//    cout << "---- check set S after computations ----" << endl;
-//    for (auto &l : S) cout << l << " ";
-//    cout << endl;
 
     return make_shared<GoodDecomposition>(PI, S, GAMMA, COMPONENT);
 }
 
 string GetDecomposition::computeBadLabel(unordered_set<string> &S,
                                          unordered_map<string, unordered_map<int, shared_ptr<TreapNode>>> &component) {
-//    cout << "---- processing set S containing the followings ----" << endl;
-//    for(auto &s : S) cout << s << " ";
-//    cout << endl;
 
     unordered_map<int, unordered_set<shared_ptr<TreapNode>>> appeared;
     for (auto &label : S) {

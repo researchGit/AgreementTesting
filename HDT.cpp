@@ -17,7 +17,6 @@ HDT::HDT(bool enablePromotion, unordered_map<graphEdge, int, graphEdgeHash> allE
          int numberOfCount) {
     if (enablePromotion) logN = (int) log2((double) treap->size_) + 1;
 
-    cout << "logN is: " << logN << endl;
 
     this->edgeList = std::move(allEdge);
     this->treeEdges = std::move(treeEdges);
@@ -26,7 +25,6 @@ HDT::HDT(bool enablePromotion, unordered_map<graphEdge, int, graphEdgeHash> allE
     this->labelReference = std::move(levelLabelReferenceMap);
     this->activeOccurList = std::move(activeOccurList);
     this->levelActiveOccurMap.emplace(0, this->activeOccurList);
-    // TODO: considering general cases that the inputs are not all connected
     unordered_set<shared_ptr<TreapNode>> treapSet{treap};
     this->levelTreapMap.emplace(0, std::move(treapSet));
     this->nodeCount = numberOfCount;
@@ -122,13 +120,7 @@ void HDT::hdtDeleteEdge(string u, string v) {
                             // enable edge promotions
                             // promote tree edges from the smaller spannign tree at level i to i + 1
                             if (i <= logN - 1) {
-//                                cout << "here" << endl;
-//                                Treap t;
-//                                t.printTreap(tempCutTreaps->treap1);
-//                                cout << "===========" << endl;
-//                                t.printTreap(tempCutTreaps->treap2);
                                 promoteTreeEdges(i, tempCutTreaps);
-//                                cout << "exit here" << endl;
                             }
                         }
 
@@ -854,7 +846,6 @@ void HDT::hdtCutTreap(string u, string v, shared_ptr<TreapNode> &treap, int edge
             tempForCompare = occurPointer2;
             occurPointer2 = occurPointer1;
             occurPointer1 = tempForCompare;
-//            cout << "here" << endl;
         }
     }
 

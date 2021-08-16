@@ -75,14 +75,15 @@ void ConstructGraph::createAssembleGraph(vector<shared_ptr<InputTreeNode>> &inpu
     }
 
     this->constructGraph_ = make_shared<ConstructGraph>(assembleGraph, this->initialPosition_, this->occurMap_, this->childMap_);
+
 }
 
 shared_ptr<InputGraph> ConstructGraph::getAssembleGraph() {
     return assembleGraph_;
 }
 
-void ConstructGraph::printAssembleGraph() {
-    for_each(assembleGraph_->begin(), assembleGraph_->end(), [](pair<string, unordered_set<string>> graphNode) {
+void ConstructGraph::printAssembleGraph(shared_ptr<InputGraph> aGraph) {
+    for_each(aGraph->begin(), aGraph->end(), [](pair<string, unordered_set<string>> graphNode) {
         cout << "label is: " << graphNode.first << endl;
         cout << "\t";
         for (const string &childLabel : graphNode.second) {
